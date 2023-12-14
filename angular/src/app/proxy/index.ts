@@ -1,0 +1,12 @@
+import * as Atributos from './atributos';
+import * as Autopartes from './autopartes';
+import * as EstadosOrdenProduccion from './estados-orden-produccion';
+import * as EstadosOrdenTrabajoAutoparte from './estados-orden-trabajo-autoparte';
+import * as ModelosProducto from './modelos-producto';
+import * as Observaciones from './observaciones';
+import * as OrdenesProduccion from './ordenes-produccion';
+import * as OrdenesTrabajoAutoparte from './ordenes-trabajo-autoparte';
+import * as Personas from './personas';
+import * as SectoresProduccion from './sectores-produccion';
+import * as Volo from './volo';
+export { Atributos, Autopartes, EstadosOrdenProduccion, EstadosOrdenTrabajoAutoparte, ModelosProducto, Observaciones, OrdenesProduccion, OrdenesTrabajoAutoparte, Personas, SectoresProduccion, Volo };

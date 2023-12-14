@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>LINCAR_GESTION</RootNamespace>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    <UserSecretsId>LINCAR_GESTION-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="7.4.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="2.4.*-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LINCAR_GESTION.Application\LINCAR_GESTION.Application.csproj" />
+    <ProjectReference Include="..\LINCAR_GESTION.EntityFrameworkCore\LINCAR_GESTION.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\LINCAR_GESTION.HttpApi\LINCAR_GESTION.HttpApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+</Project>
