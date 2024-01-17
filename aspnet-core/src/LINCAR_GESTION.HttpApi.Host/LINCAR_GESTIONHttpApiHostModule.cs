@@ -167,6 +167,13 @@ public class LINCAR_GESTIONHttpApiHostModule : AbpModule
                     .AllowAnyMethod()
                     .AllowCredentials();
             });
+            options.AddPolicy("AllowSpecificOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://127.0.0.1:5500")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
         });
     }
 
@@ -190,7 +197,7 @@ public class LINCAR_GESTIONHttpApiHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseCors();
+        app.UseCors("AllowSpecificOrigin");
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
 
