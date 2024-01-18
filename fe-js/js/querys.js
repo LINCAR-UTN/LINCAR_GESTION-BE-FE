@@ -383,3 +383,210 @@ export const postOrdenTrabajo = (ordenTrabajo) =>{
 // postEmpleado(empleado) // Funciona
 // postModeloProducto(modeloProducto) // Funciona
 // getModelosProducto() // Funciona
+
+
+
+// ----------------------------------Sectores de produccion----------------------------------
+
+
+export const getSectoresProduccion = () =>{
+  let query = `${URL}/api/app/sector-produccion/sectores-produccion`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(modeloProducto) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+
+let sectorProduccion = 
+{
+  id: null,
+  nroSector: 1,
+  nombre: "pruebaAltaSector",
+  descripcion: "prueba",
+  encargadoId: 0
+}
+
+
+export const postSectorProduccion = (sectorProduccion) =>{
+  let query = `${URL}/api/app/sector-produccion/update-sector-produccion`
+    fetch(query, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        body: JSON.stringify(sectorProduccion) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+
+
+
+//FUNCIONAN
+//postSectorProduccion(sectorProduccion); 
+//getSectoresProduccion();
+
+
+
+// ----------------------------------Ordenes Trabajo Autoparte----------------------------------
+
+export const getOrdenesAutoparte = () =>{
+  let query = `${URL}/api/app/orden-trabajo-autoparte/ordenes-trabajo-autoparte`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(ordenesTrabajoProduccion) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+export const getOrdenAutoparte = (id) =>{
+  let query = `${URL}/api/app/orden-trabajo-autoparte/${id}/orden-trabajo-autoparte`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(ordenProduccion) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+let ordenAutoparte = {
+  id: null,
+  nroOrden: 0,
+  fechaHoraCreada: "2024-01-18T13:56:12.878Z",
+  cantidad: 0,
+  ordenProduccionId: 0,
+  empleadoId: 1,
+  solicitanteId: 1,
+  autoparteId: 1
+}
+
+export const postOrdenAutoparte = (ordenAutoparte) =>{
+  let query = `${URL}/api/app/orden-trabajo-autoparte/update-orden-trabajo-autoparte`
+    fetch(query, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        body: JSON.stringify(ordenAutoparte) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+export const getOrdenesAutopartesPorEmpleado =  (idEmpleado) => {
+
+  let query = `${URL}/api/app/orden-trabajo-autoparte/ordenes-trabajo-autoparte-asignadas-aUn-empleado/${idEmpleado}`
+  fetch(query, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json', 
+    
+      },
+      mode: 'cors',
+    //  body: JSON.stringify() // body para el post
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Manejo de la respuesta
+      console.log(data);
+    })
+    .catch(error => {
+      // Manejo Errores
+      console.error('Error:', error);
+    });
+}
+
+//postOrdenAutoparte(ordenAutoparte);
+//getOrdenesAutoparte();
+//getOrdenAutoparte(1);
+//getOrdenesAutopartesPorEmpleado(1); 
+
