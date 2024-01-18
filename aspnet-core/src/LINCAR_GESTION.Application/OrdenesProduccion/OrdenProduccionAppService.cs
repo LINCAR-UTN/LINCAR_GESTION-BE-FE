@@ -33,7 +33,7 @@ namespace LINCAR_GESTION.OrdenesProduccion
             //_userManager = userManager;
         }
 
-        public async Task<ICollection<OrdenProduccionDto>> GetAllOrdenesTrabajoAutoparteAsync()
+        public async Task<ICollection<OrdenProduccionDto>> GetAllOrdenesTrabajoProduccionAsync()
         {
             var ordenesProduccion = await _ordenProduccionRepository.GetListAsync(includeDetails: true);
 
@@ -47,7 +47,7 @@ namespace LINCAR_GESTION.OrdenesProduccion
             return ObjectMapper.Map<OrdenProduccion, OrdenProduccionDto>(ordenProduccion);
         }
 
-        public async Task<ICollection<OrdenProduccionDto>> GetOrdenesTrabajoAutopartePorEstadoActualAsync(EstadoOrdenProduccion estado)
+        public async Task<ICollection<OrdenProduccionDto>> GetOrdenesTrabajoProduccionPorEstadoActualAsync(EstadoOrdenProduccion estado)
         {
             var ordenesProduccion = await _ordenProduccionRepository.GetListAsync(op => op.Estados.Last() == estado, includeDetails: true);
 

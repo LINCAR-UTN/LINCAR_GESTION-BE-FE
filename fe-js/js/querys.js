@@ -258,6 +258,126 @@ export const getModelosProducto = () =>{
       });
 }
 
+// ----------------------------------Ordenes de Produccion----------------------------------
+export const getOrdenesTrabajoProduccion = () =>{
+  let query = `${URL}/api/app/orden-produccion/ordenes-trabajo-produccion`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(ordenesTrabajoProduccion) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+export const getOrdenProduccion = (id) =>{
+  let query = `${URL}/api/app/orden-produccion/${id}/orden-produccion`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(ordenProduccion) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+let ordenTrabajo = {
+  id: 0,
+  nroOrden: 0,
+  fechaEmision: "2024-01-18T02:09:17.446Z",
+  fechaEntrega: "2024-01-18T02:09:17.446Z",
+  fechaEntregaEfectiva: "2024-01-18T02:09:17.446Z",
+  descripcionCamion: "string",
+  centroRuedaCamion: 0,
+  modeloCamion: "string",
+  cajaVelocidadCamion: "string",
+  anchoChasisCamion: 0,
+  dominioCamion: "string",
+  colorCamion: "string",
+  largoChasisCamion: 0,
+  largoTotalMts: 0,
+  largoUtilMts: 0,
+  altoTotalMts: 0,
+  altoUtilMts: 0,
+  anchoTotalMts: 0,
+  anchoUtilMts: 0,
+  espesorPisoMms: 0,
+  tipoUnidad: "string",
+  tipoPiso: "string",
+  colorZocalo: "string",
+  colorInferior: "string",
+  puertaLateral: "string",
+  puertaTrasera: "string",
+  malacates: 0,
+  arcos: 0,
+  escalera: "string",
+  boquillas: 0,
+  portaEstacas: 0,
+  voltaje: 0,
+  clienteId: 0,
+  modeloProductoId: 0
+}
+
+export const postOrdenTrabajo = (ordenTrabajo) =>{
+  let query = `${URL}/api/app/orden-produccion/update-orden-produccion`
+    fetch(query, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        body: JSON.stringify(modelo) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
+
+
 // postAutoparte(autoparte) // No funciona
 // getAutopartes() // Funciona
 // postCliente(cliente) // Funciona
