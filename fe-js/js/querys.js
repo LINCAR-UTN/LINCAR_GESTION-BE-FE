@@ -231,9 +231,36 @@ export const postModeloProducto = (modelo) =>{
       });
 }
 
+export const getModelosProducto = () =>{
+  let query = `${URL}/api/app/modelo-producto/modelos-producto`
+    fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', 
+      
+        },
+        mode: 'cors',
+        // body: JSON.stringify(modeloProducto) // body para el post
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejo de la respuesta
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejo Errores
+        console.error('Error:', error);
+      });
+}
 
 // postAutoparte(autoparte) // No funciona
 // getAutopartes() // Funciona
 // postCliente(cliente) // Funciona
 // postEmpleado(empleado) // Funciona
 // postModeloProducto(modeloProducto) // Funciona
+// getModelosProducto() // Funciona
