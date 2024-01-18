@@ -258,7 +258,7 @@ export const getModelosProducto = () =>{
       });
 }
 
-// ----------------------------------Ordenes de Produccion----------------------------------
+// ----------------------------------Ordenes Trabajo de Produccion----------------------------------
 export const getOrdenesTrabajoProduccion = () =>{
   let query = `${URL}/api/app/orden-produccion/ordenes-trabajo-produccion`
     fetch(query, {
@@ -314,7 +314,7 @@ export const getOrdenProduccion = (id) =>{
 }
 
 let ordenTrabajo = {
-  id: 0,
+  id: null,
   nroOrden: 0,
   fechaEmision: "2024-01-18T02:09:17.446Z",
   fechaEntrega: "2024-01-18T02:09:17.446Z",
@@ -359,7 +359,7 @@ export const postOrdenTrabajo = (ordenTrabajo) =>{
       
         },
         mode: 'cors',
-        body: JSON.stringify(modelo) // body para el post
+        body: JSON.stringify(ordenTrabajo) // body para el post
       })
       .then(response => {
         if (!response.ok) {
@@ -376,7 +376,6 @@ export const postOrdenTrabajo = (ordenTrabajo) =>{
         console.error('Error:', error);
       });
 }
-
 
 // postAutoparte(autoparte) // No funciona
 // getAutopartes() // Funciona
