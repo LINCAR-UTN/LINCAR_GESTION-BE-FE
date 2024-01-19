@@ -389,32 +389,32 @@ export const postOrdenTrabajo = (ordenTrabajo) =>{
 // ----------------------------------Sectores de produccion----------------------------------
 
 
-export const getSectoresProduccion = () =>{
-  let query = `${URL}/api/app/sector-produccion/sectores-produccion`
-    fetch(query, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json', 
-      
-        },
-        mode: 'cors',
-        // body: JSON.stringify(modeloProducto) // body para el post
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Manejo de la respuesta
-        console.log(data);
-      })
-      .catch(error => {
-        // Manejo Errores
-        console.error('Error:', error);
-      });
-}
+export const getSectoresProduccion = () => {
+  let query = `${URL}/api/app/sector-produccion/sectores-produccion`;
+
+  return fetch(query, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    mode: 'cors',
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Manejo de la respuesta
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      // Manejo Errores
+      console.error('Error:', error);
+    });
+};
 
 
 let sectorProduccion = 

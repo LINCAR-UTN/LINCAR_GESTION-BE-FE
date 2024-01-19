@@ -1,11 +1,76 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://bootswatch.com/5/sandstone/bootstrap.min.css" rel="stylesheet">
+    <title>Lincar</title>
 </head>
 <body>
-    <script type="module" src="./js/querys.js"></script>
+    <div class="container" style="padding: 20px;">
+        
+        <legend>Agregar autoparte</legend>
+        
+        <hr>
+
+    <form>
+        <fieldset>
+          <legend> Atributos</legend>
+        
+          <div class="form-group">
+            <label for="nombreAutoparte" class="form-label mt-4">Nombre Autoparte</label>
+            <input type="text" class="form-control" id="nombreAutoparte" aria-describedby="emailHelp" placeholder="Ingrese nombre autoparte">
+
+            
+            <label for="nombreAtributo" class="form-label mt-4">Nombre Atributo</label>
+            <input type="nombreAtributo" class="form-control" id="nombreAtributo" placeholder="Ingrese nombre Atributo" autocomplete="off">
+
+            <label for="valorAtributo" class="form-label mt-4">Valor Atributo</label>
+            <input type="valorAtributo" class="form-control" id="valorAtributo" placeholder="Ingrese valor Atributo" autocomplete="off">
+            
+            <label>Lista atributos </label>
+            <ul id="listaAtributos"></ul>
+
+            <button type="button" class="btn btn-primary" onclick="agregarAtributo()">Agregar atributo</button>
+            <button type="button" class="btn btn-primary" onclick="eliminarAtributo()">Eliminar atributo</button>
+
+
+
+          </div>
+          <hr>
+
+<!-- 
+          selector de sectores -->
+
+          <legend>Sectores</legend>
+
+          <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Example select</label>
+            <select class="form-select" id="exampleSelect1">
+            </select>
+
+            <button type="submit" class="btn btn-primary ">Agregar Sector</button>
+            <button type="submit" class="btn btn-primary ">Eliminar Sector</button>
+        </div>
+
+<hr>
+          <button type="submit" class="btn btn-primary">Guardar autoparte</button>
+        </fieldset>
+      </form>
+    </div>
+
+
+
+
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/querys.js">
+
+    import { agregarAtributo, eliminarAtributo } from './js/index.js';
+
+
+    </script>
+    
 </body>
 </html>
