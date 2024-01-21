@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\aspnet-core"
+    "\\aspnet-core",
+    "\\aspnet-core\\src",
+    "\\aspnet-core\\src\\LINCAR_GESTION.HttpApi.Host"
   ],
   "PreviewInSolutionExplorer": false
 }

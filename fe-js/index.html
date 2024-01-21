@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,62 +13,42 @@
         
         <hr>
 
-    <form>
-        <fieldset>
-          <legend> Atributos</legend>
-        
-          <div class="form-group">
-            <label for="nombreAutoparte" class="form-label mt-4">Nombre Autoparte</label>
-            <input type="text" class="form-control" id="nombreAutoparte" aria-describedby="emailHelp" placeholder="Ingrese nombre autoparte">
+        <form>
+            <fieldset>
+                <legend> Atributos</legend>
+                
+                <div class="form-group">
+                    <!-- Your form fields remain unchanged -->
 
-            
-            <label for="nombreAtributo" class="form-label mt-4">Nombre Atributo</label>
-            <input type="nombreAtributo" class="form-control" id="nombreAtributo" placeholder="Ingrese nombre Atributo" autocomplete="off">
+                    <ul id="listaAtributos"></ul>
 
-            <label for="valorAtributo" class="form-label mt-4">Valor Atributo</label>
-            <input type="valorAtributo" class="form-control" id="valorAtributo" placeholder="Ingrese valor Atributo" autocomplete="off">
-            
-            <label>Lista atributos </label>
-            <ul id="listaAtributos"></ul>
+                    <button type="button" class="btn btn-primary" onclick="agregarAtributo()">Agregar atributo</button>
+                    <button type="button" class="btn btn-primary" onclick="eliminarAtributo()">Eliminar atributo</button>
+                </div>
+                <hr>
 
-            <button type="button" class="btn btn-primary" onclick="agregarAtributo()">Agregar atributo</button>
-            <button type="button" class="btn btn-primary" onclick="eliminarAtributo()">Eliminar atributo</button>
+                <!-- Selector de sectores -->
+                <legend>Sectores</legend>
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Example select</label>
+                    <select class="form-select" id="exampleSelect1">
+                    </select>
 
+                    <button type="button" class="btn btn-primary" onclick="agregarSector()">Agregar Sector</button>
+                    <button type="button" class="btn btn-primary" onclick="eliminarSector()">Eliminar Sector</button>
+                </div>
+                <hr>
 
-
-          </div>
-          <hr>
-
-<!-- 
-          selector de sectores -->
-
-          <legend>Sectores</legend>
-
-          <div class="form-group">
-            <label for="exampleSelect1" class="form-label mt-4">Example select</label>
-            <select class="form-select" id="exampleSelect1">
-            </select>
-
-            <button type="submit" class="btn btn-primary ">Agregar Sector</button>
-            <button type="submit" class="btn btn-primary ">Eliminar Sector</button>
-        </div>
-
-<hr>
-          <button type="submit" class="btn btn-primary">Guardar autoparte</button>
-        </fieldset>
-      </form>
+                <button type="submit" class="btn btn-primary">Guardar autoparte</button>
+            </fieldset>
+        </form>
     </div>
 
-
-
-
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/querys.js">
-
+    <script type="module" src="./js/querys.js"></script>
+    <script  type="module" src="./js/index.js"
+    
     import { agregarAtributo, eliminarAtributo } from './js/index.js';
-
-
-    </script>
+    ></script>
     
 </body>
 </html>
