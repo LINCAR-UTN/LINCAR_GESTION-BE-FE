@@ -170,10 +170,17 @@ public class LINCAR_GESTIONHttpApiHostModule : AbpModule
             options.AddPolicy("AllowSpecificOrigin",
                 builder =>
                 {
-                    builder.WithOrigins("http://127.0.0.1:5500")
+                    builder.WithOrigins("http://127.0.0.1:5500") // js nativo
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 });
+            options.AddPolicy("AllowSpecificOrigin",
+            builder =>
+            {
+        builder.WithOrigins("http://127.0.0.1:5173") // react
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+            });
         });
     }
 
