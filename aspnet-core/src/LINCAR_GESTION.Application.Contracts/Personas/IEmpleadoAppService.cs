@@ -9,5 +9,7 @@ namespace LINCAR_GESTION.Personas
     public interface IEmpleadoAppService : IApplicationService
     {
         Task<EmpleadoDto> CreateUpdateEmpleadoAsync(CreateUpdateEmpleadoDto input);
+
+        Task<ICollection<EmpleadoDto>> GetEmpleadosAsync();
     }
 }

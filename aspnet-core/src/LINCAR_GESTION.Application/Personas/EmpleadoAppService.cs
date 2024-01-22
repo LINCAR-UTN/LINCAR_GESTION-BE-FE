@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 
 namespace LINCAR_GESTION.Personas
@@ -26,6 +27,12 @@ namespace LINCAR_GESTION.Personas
             }
 
             return ObjectMapper.Map<Empleado, EmpleadoDto>(empleado);
+        }
+        public async Task<ICollection<EmpleadoDto>> GetEmpleadosAsync()
+        {
+            var empleados = await _empleadoRepository.GetListAsync(includeDetails: true);
+
+            return ObjectMapper.Map<ICollection<Empleado>, ICollection<EmpleadoDto>>(empleados);
         }
     }
 }
