@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const URL = "https://localhost:44375";
 
-const OrdenesProduccionComponent = () => {
-  const [ordenesTrabajoProduccion, setOrdenesTrabajoProduccion] = useState([]);
-  const [ordenProduccion, setOrdenProduccion] = useState(null);
-
+const AutopartesComponent = () => {
   useEffect(() => {
-    const fetchOrdenesTrabajoProduccion = async () => {
+    const getAutopartes = async () => {
       try {
-        const response = await fetch(`${URL}/api/app/orden-produccion/ordenes-trabajo-produccion`, {
+        const response = await fetch(`${URL}/api/app/autoparte/autopartes`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -22,58 +19,21 @@ const OrdenesProduccionComponent = () => {
         }
 
         const data = await response.json();
-        setOrdenesTrabajoProduccion(data);
+        console.log("Autopartes obtenidas:", data);
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error al obtener autopartes:', error);
       }
     };
 
-    fetchOrdenesTrabajoProduccion();
+    getAutopartes();
   }, []);
 
-  const fetchOrdenProduccion = async (id) => {
-    try {
-      const response = await fetch(`${URL}/api/app/orden-produccion/${id}/orden-produccion`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        mode: 'cors',
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setOrdenProduccion(data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
-  // Puedes renderizar los datos o hacer cualquier otra cosa con ellos
   return (
     <div>
-      <h2>Ordenes de Trabajo de Producción</h2>
-      <ul>
-        {ordenesTrabajoProduccion.map((orden) => (
-          <li key={orden.id} onClick={() => fetchOrdenProduccion(orden.id)}>
-            {orden.descripcion}
-          </li>
-        ))}
-      </ul>
-
-      {ordenProduccion && (
-        <div>
-          <h3>Detalles de la Orden de Producción Seleccionada:</h3>
-          <p>ID: {ordenProduccion.id}</p>
-          <p>Descripción: {ordenProduccion.descripcion}</p>
-          {/* Agrega más detalles según la estructura de tus datos */}
-        </div>
-      )}
+      <h2>Componente de Autopartes</h2>
+      {/* Puedes agregar JSX para mostrar los datos si es necesario */}
     </div>
   );
 };
 
-export default OrdenesProduccionComponent;
+export default AutopartesComponent;

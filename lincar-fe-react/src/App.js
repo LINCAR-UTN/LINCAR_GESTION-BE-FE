@@ -11,14 +11,14 @@ import Personas from './components/Personas';
 import SectoresProduccion from './components/SectoresProduccion';
 import AgregarCliente from './components/AgregarCliente'
 import Navbar from './components/Navbar'
-import OrdenesProduccionComponent from './components/querys';
+import AutopartesComponent from './components/querys';
 
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <OrdenesProduccionComponent></OrdenesProduccionComponent>
+      <AutopartesComponent />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Autopartes" element={<Autopartes />} />
