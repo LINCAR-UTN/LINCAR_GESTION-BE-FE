@@ -31,14 +31,16 @@ function Personas(){
     };
   
     return (
-      <div>
+      <div className="text-center">
+        <p></p>
         <h2>{mostrarListadoClientes ? 'Clientes' : 'Empleados'}</h2>
-        <button onClick={toggleListado}>Cambiar Listado</button>
+        <button className = "btn btn-primary" onClick={toggleListado}>Cambiar Listado</button>
         {mostrarListadoClientes ? (
           <ListadoClientes clientes={clientes} />
         ) : (
           <ListadoEmpleados empleados={empleados} />
         )}
+        
       </div>
     );
   }

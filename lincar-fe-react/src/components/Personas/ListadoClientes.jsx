@@ -3,7 +3,9 @@ import React from 'react';
 const ListadoClientes = ({ clientes }) => {
   return (
     <div className='container'>
+      <br />
       <h2 className='text-center'>Listado de Clientes</h2>
+      <br />
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
