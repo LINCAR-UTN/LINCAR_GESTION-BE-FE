@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import getAutopartes from './querys';
-import AutopartesListado from './Autopartes/ListadoAutopartes';
+import {getAutopartes} from '../querys.jsx';
+import AutopartesListado from './ListadoAutopartes.jsx';
 
 function Autopartes() {
   const [autopartes, setAutopartes] = useState([]);

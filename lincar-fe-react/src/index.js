@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/bootstrap.min.css'
-import getAutopartes from './components/querys';
 import App from './App';
 
 

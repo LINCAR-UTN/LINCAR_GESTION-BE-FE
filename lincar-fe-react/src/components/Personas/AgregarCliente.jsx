@@ -1,33 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
-
+import {postCliente} from '../querys.jsx'
 
 const AgregarCliente = () => {
-    const styles = {
-        padding: '20px',
-      };
+  const styles = {
+    padding: '20px',
+  };
 
   const [cliente, setCliente] = useState({
+    id: null,
     nombre: '',
     apellido: '',
     numeroTelefono: '',
-    dni: '',
+    dni: 0,
     direccion: '',
-    fechaHoraAlta: '',//ver como lo resolvemos [tal vez lo hace el back y no tenemos ni que pasarlo]
+    fechaHoraAlta: '',
+    fechaHoraModificado: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const parsedValue = name === 'dni' ? parseInt(value, 10) : value;
+
     setCliente((prevCliente) => ({
       ...prevCliente,
-      [name]: value,
+      [name]: parsedValue,
     }));
   };
 
+  useEffect(() => {
+    // Lógica para realizar acciones después de que el estado se ha actualizado
+    if (cliente.fechaHoraAlta && cliente.fechaHoraModificado) {
+      postCliente(cliente);
+    }
+  }, [cliente]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes realizar acciones con los datos del cliente, como enviarlos a un servidor o realizar validaciones.
-    console.log('Cliente:', cliente);
+
+    setCliente((prevCliente) => ({
+      ...prevCliente,
+      fechaHoraAlta: new Date().toISOString(),
+      fechaHoraModificado: new Date().toISOString(),
+      dni: parseInt(cliente.dni, 10),
+    }));
   };
 
   return (
@@ -60,21 +76,20 @@ const AgregarCliente = () => {
           />
         </div>
         <div>
-          <label htmlFor="telefono">Número de Teléfono:</label>
+        <label htmlFor="numeroTelefono">Número de Teléfono:</label>
           <input
-            type="tel"
-            id="telefono"
-            name="telefono"
+            type="text"
+            id="numeroTelefono"
+            name="numeroTelefono"
             className="form-control"
             value={cliente.numeroTelefono}
             onChange={handleChange}
-            required
           />
         </div>
         <div>
           <label htmlFor="dni">DNI:</label>
           <input
-            type="text"
+            type="number"
             id="dni"
             name="dni"
             className="form-control"

@@ -9,5 +9,6 @@ namespace LINCAR_GESTION.Personas
     public interface IClienteAppService : IApplicationService
     {
         Task<ClienteDto> CreateUpdateClienteAsync(CreateUpdateClienteDto input);
+        Task<ICollection<ClienteDto>> GetClientesAsync();
     }
 }

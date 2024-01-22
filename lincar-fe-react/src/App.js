@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './css/bootstrap.min.css'; 
 
 import Home from './components/Home';
-import Autopartes from './components/Autopartes';
+import Autopartes from './components/Autopartes/Autopartes';
 import ModelosProductos from './components/ModelosProductos';
 import OrdenesAutopartes from './components/OrdenesAutopartes';
 import OrdenesProduccion from './components/OrdenesProduccion';
-import Personas from './components/Personas';
+import Personas from './components/Personas/Personas';
 import SectoresProduccion from './components/SectoresProduccion';
-import AgregarCliente from './components/AgregarCliente'
+import AgregarCliente from './components/Personas/AgregarCliente'
 import Navbar from './components/Navbar'
 
 
