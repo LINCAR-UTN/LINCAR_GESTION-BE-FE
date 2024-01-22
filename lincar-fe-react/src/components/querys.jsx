@@ -1,39 +1,27 @@
-import React, { useEffect } from 'react';
+// En querys.js
 
 const URL = "https://localhost:44375";
 
-const AutopartesComponent = () => {
-  useEffect(() => {
-    const getAutopartes = async () => {
-      try {
-        const response = await fetch(`${URL}/api/app/autoparte/autopartes`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          mode: 'cors',
-        });
+const getAutopartes = async () => {
+  try {
+    const response = await fetch(`${URL}/api/app/autoparte/autopartes`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+    });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-        const data = await response.json();
-        console.log("Autopartes obtenidas:", data);
-      } catch (error) {
-        console.error('Error al obtener autopartes:', error);
-      }
-    };
-
-    getAutopartes();
-  }, []);
-
-  return (
-    <div>
-      <h2>Componente de Autopartes</h2>
-      {/* Puedes agregar JSX para mostrar los datos si es necesario */}
-    </div>
-  );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error al obtener autopartes:', error);
+    throw error;
+  }
 };
 
-export default AutopartesComponent;
+export default getAutopartes ;

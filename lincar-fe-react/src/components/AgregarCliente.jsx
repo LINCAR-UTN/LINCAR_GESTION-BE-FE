@@ -8,12 +8,12 @@ const AgregarCliente = () => {
       };
 
   const [cliente, setCliente] = useState({
-    Nombre: '',
-    Apellido: '',
-    NumeroTelefono: '',
-    DNI: '',
-    Direccion: '',
-    FechaHoraAlta: '',
+    nombre: '',
+    apellido: '',
+    numeroTelefono: '',
+    dni: '',
+    direccion: '',
+    fechaHoraAlta: '',//ver como lo resolvemos [tal vez lo hace el back y no tenemos ni que pasarlo]
   });
 
   const handleChange = (e) => {
@@ -66,7 +66,7 @@ const AgregarCliente = () => {
             id="telefono"
             name="telefono"
             className="form-control"
-            value={cliente.telefono}
+            value={cliente.numeroTelefono}
             onChange={handleChange}
             required
           />
