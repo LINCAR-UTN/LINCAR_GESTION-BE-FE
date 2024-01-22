@@ -156,30 +156,9 @@ public class LINCAR_GESTIONHttpApiHostModule : AbpModule
         {
             options.AddDefaultPolicy(builder =>
             {
-                builder
-                    .WithOrigins(configuration["App:CorsOrigins"]?
-                        .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                        .Select(o => o.RemovePostFix("/"))
-                        .ToArray() ?? Array.Empty<string>())
-                    .WithAbpExposedHeaders()
-                    .SetIsOriginAllowedToAllowWildcardSubdomains()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-            });
-            options.AddPolicy("AllowSpecificOrigin",
-                builder =>
-                {
-                    builder.WithOrigins("http://127.0.0.1:5500") // js nativo
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
-                });
-            options.AddPolicy("AllowSpecificOrigin",
-            builder =>
-            {
-        builder.WithOrigins("http://127.0.0.1:5173") // react
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+                builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
             });
         });
     }
@@ -204,7 +183,7 @@ public class LINCAR_GESTIONHttpApiHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseCors("AllowSpecificOrigin");
+        app.UseCors();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();
 

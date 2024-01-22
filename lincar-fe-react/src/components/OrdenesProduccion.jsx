@@ -1,10 +1,10 @@
-function OrdenesProduccion() {
+function Ordenes() {
     return (
         <>
-            <p>OrdenesProduccion works</p>
+            <p>Ordenes Produccion works</p>
         </>
 
     );
 }
 
-export default OrdenesProduccion;
+export default Ordenes;

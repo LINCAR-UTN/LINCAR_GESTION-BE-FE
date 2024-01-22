@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import './css/bootstrap.min.css'; 
 
 import Home from './components/Home';
 import Autopartes from './components/Autopartes';
@@ -9,14 +9,16 @@ import OrdenesAutopartes from './components/OrdenesAutopartes';
 import OrdenesProduccion from './components/OrdenesProduccion';
 import Personas from './components/Personas';
 import SectoresProduccion from './components/SectoresProduccion';
+import AgregarCliente from './components/AgregarCliente'
 import Navbar from './components/Navbar'
+import OrdenesProduccionComponent from './components/querys';
 
-import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <OrdenesProduccionComponent></OrdenesProduccionComponent>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Autopartes" element={<Autopartes />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/OrdenesAutopartes" element={<OrdenesAutopartes />} />
         <Route path="/OrdenesProduccion" element={<OrdenesProduccion />} />
         <Route path="/Personas" element={<Personas />} />
+        <Route path="/AgregarCliente" element={<AgregarCliente />} />
         <Route path="/SectoresProduccion" element={<SectoresProduccion />} />
       </Routes>
     </Router>
