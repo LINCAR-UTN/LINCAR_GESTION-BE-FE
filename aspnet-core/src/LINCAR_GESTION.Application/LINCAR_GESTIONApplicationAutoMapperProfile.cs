@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LINCAR_GESTION.Atributos;
 using LINCAR_GESTION.Autopartes;
 using LINCAR_GESTION.EstadosOrdenTrabajoAutoparte;
 using LINCAR_GESTION.ModelosProducto;
@@ -43,5 +44,10 @@ public class LINCAR_GESTIONApplicationAutoMapperProfile : Profile
 
         CreateMap<EstadoOrdenTrabajoAutoparteDto, EstadoOrdenTrabajoAutoparte>().ReverseMap();
         CreateMap<CreateUpdateEstadoOrdenTrabajoAutoparteDto, EstadoOrdenTrabajoAutoparte>();
+
+        //age4rgada para atributos appservice
+        CreateMap<AtributoDto, Atributo>().ReverseMap();
+        CreateMap<CreateUpdateAtributoDto, Atributo>();
+
     }
 }

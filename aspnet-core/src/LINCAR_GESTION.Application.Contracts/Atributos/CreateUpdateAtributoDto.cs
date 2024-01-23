@@ -14,6 +14,6 @@ namespace LINCAR_GESTION.Atributos
         public string Valor { get; set; } //string ya que puede ser un atrbituo de tipo color p ejemplo
 
         // relación * a 1 con Autoparte
-        public AutoparteDto Autoparte { get; set; }
+        public int AutoparteId { get; set; }
     }
 }
