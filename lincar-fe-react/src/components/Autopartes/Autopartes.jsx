@@ -10,6 +10,7 @@ function Autopartes() {
       try {
         const autopartesData = await getAutopartes();
         setAutopartes(autopartesData);
+        console.log(autopartesData)
       } catch (error) {
         console.error('Error al obtener autopartes:', error);
       }

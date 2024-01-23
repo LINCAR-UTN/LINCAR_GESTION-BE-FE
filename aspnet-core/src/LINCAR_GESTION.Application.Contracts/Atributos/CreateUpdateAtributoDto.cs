@@ -1,20 +1,19 @@
-﻿using System;
+﻿using LINCAR_GESTION.Autopartes;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using LINCAR_GESTION.Autopartes;
-using Volo.Abp.Application.Dtos;
 
 namespace LINCAR_GESTION.Atributos
 {
-    public class AtributoDto : EntityDto<int>
+    public class CreateUpdateAtributoDto
 
     {
-        public int? CodAtributo { get; set; }
+        public int? Id { get; set; }
 
         public string Nombre { get; set; }
         public string Valor { get; set; } //string ya que puede ser un atrbituo de tipo color p ejemplo
 
         // relación * a 1 con Autoparte
-        public AutoparteDto AutoparteId { get; set; }
+        public AutoparteDto Autoparte { get; set; }
     }
 }
