@@ -170,8 +170,11 @@ public class LINCAR_GESTIONDbContext :
             b.HasMany(x => x.OrdenesTrabajoAutopartes)
                 .WithOne(x => x.Autoparte);
 
-            b.HasMany(x => x.Atributos)
-                .WithOne(x => x.Autoparte);
+            b.HasMany<Atributo>(x => x.Atributos)
+               .WithOne()
+               .HasForeignKey("AutoparteId")
+               .IsRequired(true);
+
 
             b.HasMany<Observacion>(x => x.Observaciones)
                 .WithOne()
@@ -234,7 +237,35 @@ public class LINCAR_GESTIONDbContext :
             b.ToTable(LINCAR_GESTIONConsts.DbTablePrefix + "Atributos", LINCAR_GESTIONConsts.DbSchema);
             b.ConfigureByConvention();
 
+
         });
+
+        /*builder.Entity<Autoparte>(b =>
+        {
+            b.ToTable(LINCAR_GESTIONConsts.DbTablePrefix + "Autopartes", LINCAR_GESTIONConsts.DbSchema);
+            b.ConfigureByConvention();
+
+            //Relación 1 a * OrdenTrabajoAutopartes
+            b.HasMany(x => x.OrdenesTrabajoAutopartes)
+                .WithOne(x => x.Autoparte);
+
+            b.HasMany<Atributo>(x => x.Atributos)
+               .WithOne()
+               .HasForeignKey("AutoparteId")
+               .IsRequired(true);
+
+
+            b.HasMany<Observacion>(x => x.Observaciones)
+                .WithOne()
+                .HasForeignKey("AutoparteId")
+                .IsRequired(false);
+            // Relación * a * SectorDeProduccion definida por convención de EF Core
+            // Relación * a * ModeloProducto definida por convención de EF Core
+        });*/
+
+
+
+
 
         builder.Entity<Observacion>(b =>
         {

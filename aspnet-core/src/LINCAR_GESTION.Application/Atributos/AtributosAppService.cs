@@ -38,7 +38,7 @@ namespace LINCAR_GESTION.Atributos
         public async Task<ICollection<AtributoDto>> GetAtributosAsync()
         {
             var atributos = await _atributoRepository
-                .GetListAsync(includeDetails: true);
+     .GetListAsync(includeDetails: false);
 
             return ObjectMapper.Map<ICollection<Atributo>, ICollection<AtributoDto>>(atributos);
         }
@@ -56,7 +56,7 @@ namespace LINCAR_GESTION.Atributos
         public async Task<ICollection<AtributoDto>> GetAtributosByAutoparteIdAsync(int autoparteId)
         {
             var atributos = await _atributoRepository
-            .GetListAsync(a => a.Autoparte.CodAutoparte == autoparteId);
+            .GetListAsync(x => x.AutoparteId == autoparteId);
 
 
             return ObjectMapper.Map<List<Atributo>, List<AtributoDto>>(atributos);

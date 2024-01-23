@@ -4,17 +4,20 @@ using LINCAR_GESTION.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
-namespace LINCAR_GESTION.Migrations
+namespace LINCARGESTION.Migrations
 {
     [DbContext(typeof(LINCAR_GESTIONDbContext))]
-    partial class LINCAR_GESTIONDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240123231358_configuracion-atributos")]
+    partial class configuracionatributos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -12,12 +12,12 @@ namespace LINCAR_GESTION.Atributos
 {
     public class Atributo: Entity<int>
     {
-        public int? CodAutoparte { get; set; }
+       
         public string Nombre { get; set; }
         public string Valor { get;set; } //string ya que puede ser un atrbituo de tipo color p ejemplo
 
         // relación * a 1 con Autoparte
-        public Autoparte Autoparte { get; set; }
+        public int AutoparteId { get; set; }
 
     }
 }
