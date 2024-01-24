@@ -28,6 +28,7 @@ function App() {
         <Route path="/SectoresProduccion" element={<SectoresProduccion />} />
       </Routes>
     </Router>
+    
   );
 }
 

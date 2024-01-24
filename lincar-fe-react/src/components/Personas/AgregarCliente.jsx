@@ -17,33 +17,34 @@ const AgregarCliente = () => {
     fechaHoraAlta: '',
     fechaHoraModificado: '',
   });
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const fechaActual = new Date().toISOString();
     const parsedValue = name === 'dni' ? parseInt(value, 10) : value;
-
+  
     setCliente((prevCliente) => ({
       ...prevCliente,
       [name]: parsedValue,
+      fechaHoraAlta: prevCliente.fechaHoraAlta || fechaActual,
+      fechaHoraModificado: fechaActual,
     }));
   };
-
-  useEffect(() => {
-    // Lógica para realizar acciones después de que el estado se ha actualizado
-    if (cliente.fechaHoraAlta && cliente.fechaHoraModificado) {
-      postCliente(cliente);
-    }
-  }, [cliente]);
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     setCliente((prevCliente) => ({
       ...prevCliente,
-      fechaHoraAlta: new Date().toISOString(),
-      fechaHoraModificado: new Date().toISOString(),
-      dni: parseInt(cliente.dni, 10),
+      dni: parseInt(prevCliente.dni, 10),
     }));
+  
+    
+    try {
+      await postCliente(cliente);
+    } catch (error) {
+      console.error('Error al enviar el cliente:', error);
+    }
   };
 
   return (
