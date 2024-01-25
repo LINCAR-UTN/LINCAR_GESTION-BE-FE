@@ -39,23 +39,22 @@ namespace LINCAR_GESTION.Autopartes
 
         public async Task<ICollection<AutoparteDto>> GetAutopartesAsync()
         {
-            // Obtener la lista de autopartes con detalles
             var autopartes = await _autoparteRepository
                 .GetListAsync(includeDetails: true);
 
-            // Mapear la lista de autopartes a DTOs
+  
             var autopartesDto = ObjectMapper.Map<ICollection<Autoparte>, ICollection<AutoparteDto>>(autopartes);
 
             //>>>>>>>>> PARA DEVOLVER LOS OBJETOS DENTRO DE AUTOPARTE<<<<<<<<<<<<
             // Iterar sobre cada AutoparteDto y cargar las observaciones y atributos
-            foreach (var autoparteDto in autopartesDto)
-            {
-                // Cargar Observaciones
-                //autoparteDto.Observaciones = await GetObservacionesAsync(autoparteDto.Id);
+            //foreach (var autoparteDto in autopartesDto)
+            //{
+            //    // Cargar Observaciones
+            //    //autoparteDto.Observaciones = await GetObservacionesAsync(autoparteDto.Id);
 
-                // Cargar Atributos
-                autoparteDto.Atributos = await GetAtributosAsync(autoparteDto.Id);
-            }
+            //    // Cargar Atributos
+            //    autoparteDto.Atributos = await GetAtributosAsync(autoparteDto.Id);
+            //}
 
             return autopartesDto;
         }

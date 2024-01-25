@@ -19,7 +19,7 @@ function NavbarCustom() {
           </NavDropdown>
           <NavDropdown title="Autopartes" id="autopartes-dropdown">
             <NavDropdown.Item as={Link} to="/autopartes">Ver Autopartes</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/agregar-autopartes">Agregar Autopartes</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/AgregarAutopartes">Agregar Autopartes</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/eliminar-autopartes">Eliminar Autopartes</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Sectores" id="sectores-dropdown">

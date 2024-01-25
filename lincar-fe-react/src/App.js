@@ -11,6 +11,7 @@ import Personas from './components/Personas/Personas';
 import SectoresProduccion from './components/SectoresProduccion';
 import AgregarCliente from './components/Personas/AgregarCliente'
 import Navbar from './components/Navbar'
+import AgregarAutoparte from './components/Autopartes/AgregarAutoparte';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Autopartes" element={<Autopartes />} />
         <Route path="/ModelosProductos" element={<ModelosProductos />} />
         <Route path="/OrdenesAutopartes" element={<OrdenesAutopartes />} />
+        <Route path="/AgregarAutopartes" element={<AgregarAutoparte />} />
         <Route path="/OrdenesProduccion" element={<OrdenesProduccion />} />
         <Route path="/Personas" element={<Personas />} />
         <Route path="/AgregarCliente" element={<AgregarCliente />} />

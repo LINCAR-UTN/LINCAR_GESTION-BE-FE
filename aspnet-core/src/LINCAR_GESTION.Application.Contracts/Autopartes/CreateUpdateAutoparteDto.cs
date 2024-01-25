@@ -25,6 +25,6 @@ namespace LINCAR_GESTION.Autopartes
         public ICollection<int>? ModelosProduccionIds { get; set; }
 
         // Relación 1 a * Atributo
-        public ICollection<AtributoDto>? Atributos { get; set; }
+       // public ICollection<AtributoDto>? Atributos { get; set; }
     }
 }
