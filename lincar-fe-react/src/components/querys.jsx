@@ -193,6 +193,32 @@ const postCliente = async (cliente) => {
       throw error;
     }
   };
+  // ------------------------- MODELOS PRODUCTO  ------------------------------
 
+  const getModelosProducto = () =>{
+      let query = `${URL}/api/app/modelo-producto/modelos-producto`
+       fetch(query, {
+           method: 'GET',
+            headers: {
+              'Content-Type': 'application/json', 
+          
+           },
+           mode: 'cors',
+           // body: JSON.stringify(modeloProducto) // body para el post
+         })
+          .then(response => {
+           if (!response.ok) {
+             throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Manejo de la respuesta
+            console.log(data);
+          })
+          .catch(error => {
+            // Manejo Errores
+            console.error('Error:', error);
+          });}
 
-export {postCliente, getClientes, getEmpleados, getAutopartes, getAtributosByAutoparteId , postAutoparte,  postAtributo,getSectoresProduccion}
+export {postCliente, getClientes, getEmpleados, getAutopartes, getAtributosByAutoparteId , postAutoparte,  postAtributo,getSectoresProduccion,getModelosProducto}
