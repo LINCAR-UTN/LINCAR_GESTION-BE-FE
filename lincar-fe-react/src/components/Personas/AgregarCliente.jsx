@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import {postCliente} from '../querys.jsx'
+import { notificarSuccess, notificarError } from '../Notificaciones.jsx';
 
 const AgregarCliente = () => {
   const styles = {
@@ -14,26 +15,24 @@ const AgregarCliente = () => {
     numeroTelefono: '',
     dni: 0,
     direccion: '',
-    fechaHoraAlta: '',
-    fechaHoraModificado: '',
+    fechaHoraAlta: new Date().toISOString(),
+    fechaHoraModificado: new Date().toISOString(),
   });
   
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const fechaActual = new Date().toISOString();
-    const parsedValue = name === 'dni' ? parseInt(value, 10) : value;
+    // const parsedValue = name === 'dni' ? parseInt(value, 10) : value;
   
     setCliente((prevCliente) => ({
       ...prevCliente,
-      [name]: parsedValue,
-      fechaHoraAlta: prevCliente.fechaHoraAlta || fechaActual,
-      fechaHoraModificado: fechaActual,
+      [name]: value,
     }));
   };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    
+
     setCliente((prevCliente) => ({
       ...prevCliente,
       dni: parseInt(prevCliente.dni, 10),
@@ -42,8 +41,9 @@ const AgregarCliente = () => {
     
     try {
       await postCliente(cliente);
+      notificarSuccess("Cliente");
     } catch (error) {
-      console.error('Error al enviar el cliente:', error);
+      notificarError(error);
     }
   };
 

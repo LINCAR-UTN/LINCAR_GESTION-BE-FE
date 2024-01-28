@@ -1,7 +1,8 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import {postEmpleado} from '../querys.jsx'
+import { notificarError, notificarSuccess } from '../Notificaciones.jsx';
 
 const AgregarEmpleado = () => {
   const styles = {
@@ -14,21 +15,17 @@ const AgregarEmpleado = () => {
     apellido: '',
     numeroTelefono: '',
     dni: 0,
-    fechaHoraAlta: '',
-    fechaHoraModificado: '',
+    fechaHoraAlta: new Date().toISOString(),
+    fechaHoraModificado: new Date().toISOString(),
     activo:true,
   });
   
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const fechaActual = new Date().toISOString();
-    const parsedValue = name === 'dni' ? parseInt(value, 10) : value;
-  
+
     setEmpleado((prevEmpleado) => ({
       ...prevEmpleado,
-      [name]: parsedValue,
-      fechaHoraAlta: prevEmpleado.fechaHoraAlta || fechaActual,
-      fechaHoraModificado: fechaActual,
+      [name]: value,
     }));
   };
   
@@ -43,8 +40,9 @@ const AgregarEmpleado = () => {
     
     try {
       await postEmpleado(empleado);
+      notificarSuccess("Empleado")
     } catch (error) {
-      console.error('Error al enviar el cliente:', error);
+      notificarError(error);
     }
   };
 
