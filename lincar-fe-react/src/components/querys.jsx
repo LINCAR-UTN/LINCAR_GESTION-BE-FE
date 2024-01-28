@@ -95,6 +95,29 @@ const postCliente = async (cliente) => {
       throw error;
     }
   };
+
+  const postEmpleado = async (empleado) => {
+    try {
+      const response = await fetch(`${URL}/api/app/empleado/update-empleado`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+        body: JSON.stringify(empleado)
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  };
   // ------------------------- AUTOPARTES  ------------------------------
 
   const getAutopartes = async () => {
@@ -221,4 +244,6 @@ const postCliente = async (cliente) => {
             console.error('Error:', error);
           });}
 
-export {postCliente, getClientes, getEmpleados, getAutopartes, getAtributosByAutoparteId , postAutoparte,  postAtributo,getSectoresProduccion,getModelosProducto}
+export {postCliente, getClientes, getEmpleados, postEmpleado, getAutopartes, 
+  getAtributosByAutoparteId , postAutoparte,  postAtributo,getSectoresProduccion,
+  getModelosProducto}

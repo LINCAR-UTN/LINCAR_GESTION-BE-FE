@@ -10,6 +10,7 @@ import OrdenesProduccion from './components/OrdenesProduccion';
 import Personas from './components/Personas/Personas';
 import SectoresProduccion from './components/SectoresProduccion';
 import AgregarCliente from './components/Personas/AgregarCliente'
+import AgregarEmpleado from './components/Personas/AgregarEmpleado'
 import Navbar from './components/Navbar'
 import AgregarAutoparte from './components/Autopartes/AgregarAutoparte';
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/OrdenesProduccion" element={<OrdenesProduccion />} />
         <Route path="/Personas" element={<Personas />} />
         <Route path="/AgregarCliente" element={<AgregarCliente />} />
+        <Route path="/AgregarEmpleado" element={<AgregarEmpleado />} />
         <Route path="/SectoresProduccion" element={<SectoresProduccion />} />
       </Routes>
     </Router>

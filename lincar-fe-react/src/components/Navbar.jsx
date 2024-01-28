@@ -35,6 +35,7 @@ function NavbarCustom() {
           <NavDropdown title="Personas" id="personas-dropdown">
             <NavDropdown.Item as={Link} to="/Personas">Personas</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/AgregarCliente">Agregar Cliente</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/AgregarEmpleado">Agregar Empleado</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
