@@ -218,31 +218,28 @@ const postCliente = async (cliente) => {
   };
   // ------------------------- MODELOS PRODUCTO  ------------------------------
 
-  const getModelosProducto = () =>{
-      let query = `${URL}/api/app/modelo-producto/modelos-producto`
-       fetch(query, {
-           method: 'GET',
-            headers: {
-              'Content-Type': 'application/json', 
-          
-           },
-           mode: 'cors',
-           // body: JSON.stringify(modeloProducto) // body para el post
-         })
-          .then(response => {
-           if (!response.ok) {
-             throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Manejo de la respuesta
-            console.log(data);
-          })
-          .catch(error => {
-            // Manejo Errores
-            console.error('Error:', error);
-          });}
+  const getModelosProducto = async () => {
+    try {
+      const response = await fetch(`${URL}/api/app/modelo-producto/modelos-producto`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error al obtener modelos producto:', error);
+      throw error;
+    }
+  };
+
 
 export {postCliente, getClientes, getEmpleados, postEmpleado, getAutopartes, 
   getAtributosByAutoparteId , postAutoparte,  postAtributo,getSectoresProduccion,

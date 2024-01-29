@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { postAutoparte, getSectoresProduccion, getModelosProducto } from '../querys';
+import { notificarSuccess, notificarError } from '../Notificaciones';
 
-const AgregarCliente = () => {
+const AgregarAutoparte = () => {
   const [autoparte, setAutoparte] = useState({
     id: null,
     codAutoparte: null,
     nombre: '',
     activa: true,
     observaciones: [],
-    sectoresProduccionIds: '',
-    modelosProduccionIds: '',
+    sectoresProduccionIds: [],
+    modelosProduccionIds: [],
   });
 
   const [sectoresProduccion, setSectoresProduccion] = useState([]);
@@ -31,9 +32,9 @@ const AgregarCliente = () => {
 
     try {
       await postAutoparte(autoparte);
-      console.log('enviado', { autoparte });
+      notificarSuccess("Autoparte");
     } catch (error) {
-      console.error('Error al enviar el cliente:', error);
+      notificarError(error);
     }
   };
 
@@ -55,12 +56,11 @@ const AgregarCliente = () => {
   
     fetchData();
   }, []);
-
   return (
     <div className="container mt-4">
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">NOMBRE AUTOPARTE</InputGroup.Text>
+          <InputGroup.Text id="basic-addon1">Nombre Autoparte</InputGroup.Text>
           <Form.Control
             placeholder="Nombre autoparte"
             aria-label="nombreAutoparte"
@@ -72,10 +72,14 @@ const AgregarCliente = () => {
           />
         </InputGroup>
 
+        <p>Sectores de Producción</p>
+
         <div className="d-flex flex-column">
           {sectoresProduccion.map((sector) => (
             <InputGroup key={sector.id} className="mb-3">
-              <InputGroup.Checkbox aria-label={`Checkbox for ${sector.nombre}`} />
+              <InputGroup.Checkbox
+                aria-label={`Checkbox for ${sector.nombre}`}
+              />
               <Form.Control
                 placeholder={sector.nombre}
                 aria-label="Text input with checkbox"
@@ -85,22 +89,21 @@ const AgregarCliente = () => {
           ))}
         </div>
 
-
-
-
+        <p>Modelos de Producción a los que pertenece la Autoparte</p>
         <div className="d-flex flex-column">
-  { modelosProducto.map((modelo) => (
-    <InputGroup key={modelo.id} className="mb-3">
-      <InputGroup.Checkbox aria-label={`Checkbox for ${modelo.codigoModelo}`} />
-      <Form.Control
-        placeholder={modelo.codigoModelo}
-        aria-label="Text input with checkbox"
-        disabled // Assuming you want these inputs to be disabled
-      />
-    </InputGroup>
-  ))}
-</div>
-
+          {modelosProducto.map((modelo) => (
+            <InputGroup key={modelo.id} className="mb-3">
+              <InputGroup.Checkbox
+                aria-label={`Checkbox for ${modelo.codigoModelo}`}
+              />
+              <Form.Control
+                placeholder={modelo.codigoModelo}
+                aria-label="Text input with checkbox"
+                disabled // Assuming you want these inputs to be disabled
+              />
+            </InputGroup>
+          ))}
+        </div>
 
         <button type="submit" className="btn btn-primary">
           Enviar
@@ -110,4 +113,4 @@ const AgregarCliente = () => {
   );
 };
 
-export default AgregarCliente;
+export default AgregarAutoparte;
