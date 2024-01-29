@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {getAutopartes} from '../querys.jsx';
+import {getAutopartes} from '../Queries.jsx';
 import AutopartesListado from './ListadoAutopartes.jsx';
 
 function Autopartes() {

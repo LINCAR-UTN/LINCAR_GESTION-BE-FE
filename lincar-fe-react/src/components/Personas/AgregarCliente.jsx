@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import {postCliente} from '../querys.jsx'
+import {postCliente} from '../Queries.jsx'
 import { notificarSuccess, notificarError } from '../Notificaciones.jsx';
 
 const AgregarCliente = () => {

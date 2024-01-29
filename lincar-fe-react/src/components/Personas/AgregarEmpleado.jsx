@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import {postEmpleado} from '../querys.jsx'
+import {postEmpleado} from '../Queries.jsx'
 import { notificarError, notificarSuccess } from '../Notificaciones.jsx';
 
 const AgregarEmpleado = () => {

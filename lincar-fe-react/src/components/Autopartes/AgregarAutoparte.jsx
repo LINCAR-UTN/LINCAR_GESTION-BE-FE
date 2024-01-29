@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { postAutoparte, getSectoresProduccion, getModelosProducto } from '../querys';
+import { postAutoparte, getSectoresProduccion, getModelosProducto } from '../Queries.jsx';
 import { notificarSuccess, notificarError } from '../Notificaciones';
 
 const AgregarAutoparte = () => {

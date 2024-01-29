@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import { getAtributosByAutoparteId } from '../querys.jsx';
+import { getAtributosByAutoparteId } from '../Queries.jsx';
 
 const AutopartesListado = ({ autopartes }) => {
   const [activeKey, setActiveKey] = useState(null);

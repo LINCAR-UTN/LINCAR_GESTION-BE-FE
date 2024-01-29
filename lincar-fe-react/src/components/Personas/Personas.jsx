@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {getClientes, getEmpleados} from '../querys.jsx';
+import {getClientes, getEmpleados} from '../Queries.jsx';
 import ListadoClientes from './ListadoClientes.jsx';
 import ListadoEmpleados from './ListadoEmpleados.jsx';
 
